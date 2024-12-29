@@ -78,7 +78,7 @@ The **Library Management System** is a web application built using Flask for the
 ## Screenshots
 
 ### Home Page
-![Home Page](static/images/homepage-screenshot.png)
+![Home Page](home.PNG)
 
 ### Add Book Page
 ![Add Book Page](static/images/addbook-screenshot.png)
