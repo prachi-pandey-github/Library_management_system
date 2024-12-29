@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Library Management System</title>
+        <link rel="stylesheet" type="text/css" href="static/styles/style4.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      </head>
+      
+      <body>
+        <div class="navbar">
+          <h1>Library Management System</h1>
+        </div>
+      
+        <div class="container">
+          <h2>Return a Book</h2>
+          <form id="return-book-form" method="POST" action="/return_book" class="form-style">
+            <label>Book Name:</label>
+            <input type="text" name="book_name" placeholder="Enter book name" required>
+      
+            <label>User ID:</label>
+            <input type="number" name="user_id" placeholder="Enter user ID" required>
+      
+            <label>Date (YYYY-MM-DD):</label>
+            <input type="date" name="date" required>
+      
+            <button type="button" class="btn btn-return" id="return-book-button">Return Book</button>
+          </form>
+        </div>
+      
+        <!-- Modal (popup) for confirmation -->
+        <div id="confirmation-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Are you sure you want to return the book?</h3>
+            <p>This action will return the book and apply any fines if applicable.</p>
+            <button id="confirm-return" class="btn btn-return">Yes, Return Book</button>
+            <button class="btn btn-cancel" id="cancel-return">Cancel</button>
+          </div>
+        </div>
+      
+        <script>
+          // Open Modal on button click
+          $('#return-book-button').on('click', function() {
+            $('#confirmation-modal').css('display', 'block');
+          });
+      
+          // Close Modal
+          $('.close-btn').on('click', function() {
+            $('#confirmation-modal').css('display', 'none');
+          });
+      
+          // Confirm return and submit the form
+          $('#confirm-return').on('click', function() {
+            $('#return-book-form').submit(); // Submit the form
+            $('#confirmation-modal').css('display', 'none'); // Close the modal
+          });
+      
+          // Cancel return and close the modal
+          $('#cancel-return').on('click', function() {
+            $('#confirmation-modal').css('display', 'none'); // Close the modal
+          });
+        </script>
+      
+  
+      </body>
+      </html>

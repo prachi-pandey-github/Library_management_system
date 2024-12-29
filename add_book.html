@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+ 
+  <title>Library Management System</title>
+  <link rel="stylesheet" type="text/css" href="static/styles/style2.css">
+  </head>  
+  
+  <div class="navbar">
+    <h1>Library Management System</h1>
+</div>
+<body>
+ 
+    <h1>Add Book to Library</h1>
+    <form method="POST" action="/add_book">
+        <label>Book Name:</label>
+        <input type="text" name="book_name" required>
+
+        <label>Author Name:</label>
+        <input type="text" name="author_name" required>
+
+        <label>Subject:</label>
+        <input type="text" name="subject" required>
+
+        <label>Number of Copies:</label>
+        <input type="number" name="copies" min="1" required>
+
+        <button type="submit">Add Book</button>
+    </form>
+
+    {% if book_exists %}
+    <!-- If the book exists, ask for the number of copies to add -->
+    <script type="text/javascript">
+        if (confirm("This book already exists. Do you want to add more copies?")) {
+            var additionalCopies = prompt("How many copies do you want to add?", "1");
+            if (additionalCopies != null && additionalCopies != "") {
+                // Submit form to add additional copies
+                var form = document.createElement("form");
+                form.method = "POST";
+                form.action = "/add_book";
+                
+                // Add the existing book details and additional copies
+                var bookIdField = document.createElement("input");
+                bookIdField.type = "hidden";
+                bookIdField.name = "book_id";
+                bookIdField.value = "{{ book_id }}";  // Book ID from Flask context
+                form.appendChild(bookIdField);
+
+                var copiesField = document.createElement("input");
+                copiesField.type = "hidden";
+                copiesField.name = "additional_copies";
+                copiesField.value = additionalCopies;  // User input for additional copies
+                form.appendChild(copiesField);
+
+                document.body.appendChild(form);
+                form.submit();  // Submit the form to add copies
+            }
+        }
+    </script>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Library Management System</title>
+        <link rel="stylesheet" type="text/css" href="static/styles/style3.css">
+  </head>
+    
+  <body>
+    <div class="navbar">
+      <h1>Library Management System</h1>
+    </div>
+
+    <div class="container">
+      <h2>Issue a Book</h2>
+      <form method="POST" action="/issue_book" class="form-style">
+        <label>Book Name:</label>
+        <input type="text" name="book_name" placeholder="Enter book name" required>
+
+        <label>User ID:</label>
+        <input type="number" name="user_id" placeholder="Enter user ID" required>
+
+        <button type="submit" class="btn btn-issue">Issue Book</button>
+      </form>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul>
+            {% for category, message in messages %}
+                <li class="alert {{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+
+  </body>
+</html>
+

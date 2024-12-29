@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Book</title>
+    <link rel="stylesheet" type="text/css" href="static/styles/style5.css">
+</head>
+<body>
+    <h1>Search Book</h1>
+
+    <!-- Search Form -->
+    <form method="GET" action="/search_book">
+      <input type="text" name="query" placeholder="Search by Book Name, Author, or Subject" required>
+      <button type="submit">Search</button>
+  </form>
+
+  {% if books %}
+  <table>
+      <thead>
+          <tr>
+              <th>Book Name</th>
+              <th>Author</th>
+              <th>Subject</th>
+              <th>Available Copies</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for book in books %}
+          <tr>
+              <td>{{ book[0] }}</td>
+              <td>{{ book[1] }}</td>
+              <td>{{ book[2] }}</td>
+              <td>{{ book[3] }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  {% else %}
+  <p>No books found.</p>
+  {% endif %}
+
+  <a href="/" class="back-button">Go Back to Home</a>
+</div>
+</body>
+</html>

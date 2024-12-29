@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Library Management System</title>
+        <link rel="stylesheet" type="text/css" href="static/styles/style.css">
+    </head>
+
+<body>
+    
+    <div class="container">
+        <h2>Welcome to the Library Management System</h2>
+        <div class="button-container">
+            <a href="/add_book" class="btn btn-add">Add Book</a>
+            <a href="/issue_book" class="btn btn-issue">Issue Book</a>
+            <a href="/return_book" class="btn btn-return">Return Book</a>
+            
+            <a href="/search_book" class="button">Search Book</a> <!-- New Search Book button -->
+        </div>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          <ul>
+              {% for category, message in messages %}
+                  <li class="alert {{ category }}">{{ message }}</li>
+              {% endfor %}
+          </ul>
+      {% endif %}
+  {% endwith %}
+</body>
+</html>
