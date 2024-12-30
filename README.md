@@ -111,6 +111,6 @@ Special thanks to the open-source community and Flask documentation for guidance
 
 ## Contact
 For questions or suggestions, feel free to reach out:
-- Email: your-email@example.com
-- GitHub: [your-username](https://github.com/your-username/)
+-Email: prachipandeyk85@gmail.com 
+-GitHub:(https://github.com/prachi-pandey-github/)
 
