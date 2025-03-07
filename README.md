@@ -88,14 +88,14 @@ The **Library Management System** is a web application built using Flask for the
 ## Technologies Used
 1. **Backend**: Flask (Python)
 2. **Frontend**: HTML, CSS
+3. **Database**: MySQL
 
 ---
 
 ## Future Enhancements
-1. Integrate a database (e.g., SQLite or PostgreSQL) to store book data persistently.
-2. Add user authentication for admin and regular users.
-3. Implement advanced search and filtering options.
-4. Enhance the UI with JavaScript for better interactivity.
+1. Add user authentication for admin and regular users.
+2. Implement advanced search and filtering options.
+3. Enhance the UI with JavaScript for better interactivity.
 
 ---
 
